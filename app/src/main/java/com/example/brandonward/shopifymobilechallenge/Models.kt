@@ -1,7 +1,5 @@
 package com.example.brandonward.shopifymobilechallenge
 
-import org.json.JSONArray
-
 class CustomCollectionFeed(val custom_collections: List<CustomCollection>)
 
 class CustomCollection(val id: Long, val title: String, val image: CustomCollectionImage, val body_html: String)
