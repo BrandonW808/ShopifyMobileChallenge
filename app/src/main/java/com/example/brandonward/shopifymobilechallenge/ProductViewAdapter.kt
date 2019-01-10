@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.category_cell.view.*
+import kotlinx.android.synthetic.main.collection_cell.view.*
 import kotlinx.android.synthetic.main.product_cell.view.*
 
-class ProductViewAdapter(val customProductFeed: CustomProductFeed, val categoryName: String, val categoryImgSrc: String) : RecyclerView.Adapter<CategoryViewHolder>() {
+class ProductViewAdapter(val customProductFeed: CustomProductFeed, val collectionName: String, val collectionImgSrc: String) : RecyclerView.Adapter<CollectionViewHolder>() {
 
     //Number of Categories to View
     override fun getItemCount(): Int {
@@ -21,15 +21,14 @@ class ProductViewAdapter(val customProductFeed: CustomProductFeed, val categoryN
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         val productCell = inflater.inflate(R.layout.product_cell, parent, false)
-        return CategoryViewHolder(productCell)
+        return CollectionViewHolder(productCell)
     }
 
-    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CollectionViewHolder, position: Int) {
         val productName = customProductFeed.products.get(position).title
-//        val productImgSrc = customProductFeed.custom_products.get(position).image.src
         holder?.view?.productTitle.text = productName
         var variant_num: Int = 0
         for (variant in customProductFeed.products[position].variants){
@@ -37,11 +36,11 @@ class ProductViewAdapter(val customProductFeed: CustomProductFeed, val categoryN
         }
         holder?.view?.productInventory.text = "Qty: " + variant_num
 
-        holder?.view?.CollectionTitle.text = categoryName
+        holder?.view?.CollectionTitle.text = collectionName
 
         val categoryImageView = holder.view.productCollectionImage
 
-        Picasso.get().load(categoryImgSrc).into(categoryImageView)
+        Picasso.get().load(collectionImgSrc).into(categoryImageView)
 
     }
 
@@ -51,9 +50,4 @@ class ProductViewAdapter(val customProductFeed: CustomProductFeed, val categoryN
 
 class ProductViewHolder(val view: View): RecyclerView.ViewHolder(view) {
 
-    init {
-        view.setOnClickListener{
-            val intent = Intent(view.context, MainActivity::class.java)
-        }
-    }
 }

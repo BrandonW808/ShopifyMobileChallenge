@@ -2,13 +2,11 @@ package com.example.brandonward.shopifymobilechallenge
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.CardView
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_product.*
 import okhttp3.*
 import java.io.IOException
@@ -27,10 +25,10 @@ class ProductActivity : AppCompatActivity() {
 
         //Grab the variables passed from CategoryViewAdapter
         val bundle: Bundle? = intent.extras
-        var collectionid: Long = bundle!!.getLong(CategoryViewHolder.COLLECTIONID)
-        var collectionName: String = bundle!!.getString(CategoryViewHolder.COLLECTIONNAME)
-        var collectionImgSrc: String = bundle!!.getString(CategoryViewHolder.COLLECTIONIMG)
-        var collectionBody: String = bundle!!.getString(CategoryViewHolder.COLLECTIONBODY)
+        var collectionid: Long = bundle!!.getLong(CollectionViewHolder.COLLECTIONID)
+        var collectionName: String = bundle!!.getString(CollectionViewHolder.COLLECTIONNAME)
+        var collectionImgSrc: String = bundle!!.getString(CollectionViewHolder.COLLECTIONIMG)
+        var collectionBody: String = bundle!!.getString(CollectionViewHolder.COLLECTIONBODY)
         Picasso.get().load(collectionImgSrc).into(collectionCardImageView)
         val collectionCardTitle = findViewById(R.id.collectionCardTitleTextView) as TextView
         val collectionCardBody = findViewById(R.id.collectionCardBodyTextView) as TextView

@@ -15,5 +15,3 @@ class CustomProductFeed(val products: List<CustomProduct>)
 class CustomProduct(val title: String, val id: Long, val variants: List<CustomProductVariant>)
 
 class CustomProductVariant(val inventory_quantity: Int)
-
-class CustomProductImage(val src: String)

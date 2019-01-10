@@ -2,7 +2,6 @@ package com.example.brandonward.shopifymobilechallenge
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.google.gson.GsonBuilder
@@ -11,7 +10,6 @@ import okhttp3.*
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
-    private val mScrollPosition: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
                 //For debugging, uncomment below line to view JSON received
                 //println(body)
-                runOnUiThread {  categoryView.adapter = CategoryViewAdapter(categoryFeed) }
+                runOnUiThread {  categoryView.adapter = CollectionViewAdapter(categoryFeed) }
             }
         })
 
