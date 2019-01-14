@@ -3,25 +3,19 @@ package com.example.brandonward.shopifymobilechallenge
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_failed.*
 import kotlinx.android.synthetic.main.activity_product.*
 import okhttp3.*
 import java.io.IOException
 
 class ProductActivity : AppCompatActivity() {
-    val TAG: String = "ProductActivity: "
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
-        productLoadingBar.visibility = View.VISIBLE
-        connectingProductsTextView.visibility = View.VISIBLE
 
         val collectionCardImageView= findViewById(R.id.collectionCardImageView) as ImageView
 
@@ -57,10 +51,8 @@ class ProductActivity : AppCompatActivity() {
 
         client.newCall(request).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.d(TAG, "Error: " + e)
-                runOnUiThread{
-                    setContentView(R.layout.activity_failed)
-                }
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                println("Unable to Connect")
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -95,19 +87,12 @@ class ProductActivity : AppCompatActivity() {
 
         secondclient.newCall(newrequest).enqueue(object: Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.d(TAG, "Error: " + e)
-                runOnUiThread{
-                    setContentView(R.layout.activity_failed)
-                }
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                println("Unable to Connect")
             }
 
             override fun onResponse(call: Call, response: Response) {
-                runOnUiThread {
-                    productLoadingBar.visibility = View.GONE
-                    connectingProductsTextView.visibility = View.GONE
-                }
-
-
+                println("GOT RESPONSE")
                 val body = response.body()?.string()
 
                 val parser = GsonBuilder().create()
