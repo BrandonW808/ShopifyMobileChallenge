@@ -18,7 +18,7 @@ class CollectionViewAdapter(val customCollectionFeed: CustomCollectionFeed) : Re
 
     //When the view is created, inflate the collection_cell layout into the parent
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionViewHolder {
-        val inflater = LayoutInflater.from(parent?.context)
+        val inflater = LayoutInflater.from(parent.context)
         val collection = inflater.inflate(R.layout.collection_cell, parent, false)
         return CollectionViewHolder(collection)
     }
@@ -60,10 +60,6 @@ class CollectionViewHolder(val view: View, var collection: CustomCollection? = n
             intent.putExtra(COLLECTIONIMG, collection?.image?.src)
             intent.putExtra(COLLECTIONNAME, collection?.title)
             intent.putExtra(COLLECTIONBODY, collection?.body_html)
-            val keys = intent.extras.keySet()
-            for (key in keys){
-                val bundle: Bundle? = intent.extras
-            }
 
             view.context.startActivity(intent)
         }

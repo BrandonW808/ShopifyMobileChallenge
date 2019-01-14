@@ -13,7 +13,7 @@ import okhttp3.*
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
-    val TAG: String = "MainActivity: "
+    val TAG: String? = MainActivity::class.qualifiedName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
