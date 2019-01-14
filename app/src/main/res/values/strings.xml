@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Shopify Mobile Challenge</string>
+    <string name="url">https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&amp;access_token=c32313df0d0ef512ca64d5b336a0d7c6</string>
+    <string name="error">Error: </string>
+    <string name="categoryidurl1">https://shopicruit.myshopify.com/admin/collects.json?collection_id=</string>
+    <string name="categoryidurl2">&amp;page=1&amp;access_token=c32313df0d0ef512ca64d5b336a0d7c6</string>
+    <string name="idurl1">https://shopicruit.myshopify.com/admin/products.json?ids=</string>
+    <string name="idurl2">&amp;page=1&amp;access_token=c32313df0d0ef512ca64d5b336a0d7c6</string>
+
 </resources>
